@@ -1,12 +1,20 @@
+
 <div class="main">
-    <div class="row no-gutters">
-        <app-header [title]="title"></app-header>
-    </div>
-    <div class="row no-gutters">
+  <div class="row no-gutters leftside">
+    <div class="sidebar" [ngClass]="{'col-2':showSidebar == true,'hideSidebar':showSidebar == false}">
         <app-sidebar></app-sidebar>
-        <router-outlet></router-outlet>
     </div>
-    <div class="row no-gutters footer">
-        <app-footer></app-footer>
+    <div class="" [ngClass]="{'col-10':showSidebar == true,'col-12':showSidebar == false}">
+        <div class="row no-gutters header">
+            <div (click)="toggle()"><span><i class="fa fa-bars"></i></span></div>
+            <app-header [title]="title"></app-header>
+        </div>
+        <div class="row no-gutters content">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="row no-gutters footer">
+            <app-footer></app-footer>
+        </div>
     </div>
+  </div>
 </div>
