@@ -7,22 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-    selectedItem:any = null;
+    currentSelected:any = null;
     items=[
-      {name:'Dashboard',isChildren:false,url:'/web/dashboard'},
-      {name:'Chart',isChildren:false,url:null},
-      {name:'d3-Chart',isChildren:true,url:'/web/d3-chart'},
-      {name:'chart.js',isChildren:true,url:'/web/chart-js'}
+      {name:'Dashboard',isChildren:false,open:false,url:'/web/dashboard',children:[]},
+      {name:'Chart',isChildren:false,open:false,url:null,children:[
+        {name:'d3-Chart',isChildren:true,url:'/web/d3-chart'},
+        {name:'chart.js',isChildren:true,url:'/web/chart-js'}]
+      }
     ]
     constructor() { }
 
     ngOnInit() {
         if(this.items.length >0){
-            this.selectedItem = this.items[0];
+            this.currentSelected = this.items[0];
         }
     }
     onClick(item:any){
-        this.selectedItem = item;
+        this.currentSelected = item;
+        if(this.currentSelected.open != null && this.currentSelected.open != undefined){
+            this.currentSelected.open = !this.currentSelected.open;
+        }
     }
 
 }

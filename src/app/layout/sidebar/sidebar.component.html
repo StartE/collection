@@ -1,7 +1,20 @@
+
 <div class="nav-items">
-    <div *ngFor ="let item of items" [routerLink]="item.url"
-    [ngClass]="{'nav-title':!item.isChildren,'nav-item':item.isChildren,'selected':selectedItem == item}" 
-    (click) = "onClick(item)" >
-        <span>{{item.name}}</span>
+    <div *ngFor ="let item of items">
+        <div *ngIf ="!isChildren" class="nav-title" [routerLink]="item.url" (click) = "onClick(item)" [ngClass]="{'selected':currentSelected == item}">
+            <span class="line">
+                <i class=" left-icon fa fa-star"></i>
+                {{item.name}}
+                <i class=" right-icon fa" [ngClass]="{'fa-chevron-left':!item.open,'fa-chevron-down':item.open}"></i>
+            </span>
+        </div>
+        <div *ngIf ="item.open" >
+            <div *ngFor = "let d of item.children"  [routerLink]="d.url" (click) = "onClick(d)" [ngClass]="{'selected':currentSelected == d}" class="nav-item">
+                <span class="line">
+                    <i class=" left-icon fa fa-minus"></i>
+                    {{d.name}}
+                </span>
+            </div>
+        </div>
     </div>
 </div>
