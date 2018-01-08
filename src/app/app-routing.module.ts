@@ -7,6 +7,8 @@ import { DataScienceComponent } from './data-science/data-science.component';
 
 import { DashboardComponent } from './web-dev/dashboard/dashboard.component';
 import { D3ChartComponent } from './web-dev/d3-chart/d3-chart.component';
+import { ChartJsComponent } from './web-dev/chart-js/chart-js.component';
+
 import { PythonComponent } from './data-science/python/python.component';
 import { AlgorithmComponent } from './data-science/algorithm/algorithm.component';
 
@@ -19,8 +21,12 @@ const routes: Routes = [
           component: DashboardComponent,
       }, 
       {
-          path: 'chart',
+          path: 'd3-chart',
           component: D3ChartComponent,
+      },
+      {
+          path: 'chart-js',
+          component: ChartJsComponent,
       }, 
       {
       path: '**',

@@ -1,0 +1,30 @@
+.nav-items{
+    width: 100%;
+    height: 100%;
+    padding: 5rem 0;
+}
+.nav-title{
+    width: 100%;
+    height: 2.5rem;
+    font-size: 1rem;
+    padding: 0.5rem 0.5rem;
+    cursor: pointer;
+    background: darkgray;
+    border-top: #222 1px solid;
+}
+.nav-item{
+    height: 2.5rem;
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+}
+.nav-title:hover{
+    color: white;
+}
+.nav-item:hover{
+    color: white;
+}
+.selected{
+    color: darkblue;
+}

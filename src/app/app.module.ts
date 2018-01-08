@@ -14,6 +14,7 @@ import { DashboardComponent } from './web-dev/dashboard/dashboard.component';
 import { D3ChartComponent } from './web-dev/d3-chart/d3-chart.component';
 import { PythonComponent } from './data-science/python/python.component';
 import { AlgorithmComponent } from './data-science/algorithm/algorithm.component';
+import { ChartJsComponent } from './web-dev/chart-js/chart-js.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AlgorithmComponent } from './data-science/algorithm/algorithm.component
     DashboardComponent,
     D3ChartComponent,
     PythonComponent,
-    AlgorithmComponent
+    AlgorithmComponent,
+    ChartJsComponent
   ],
   imports: [
     BrowserModule,

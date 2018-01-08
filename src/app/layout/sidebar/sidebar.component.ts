@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+    selectedItem:any = null;
+    items=[
+      {name:'Dashboard',isChildren:false,url:'/web/dashboard'},
+      {name:'Chart',isChildren:false,url:null},
+      {name:'d3-Chart',isChildren:true,url:'/web/d3-chart'},
+      {name:'chart.js',isChildren:true,url:'/web/chart-js'}
+    ]
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        if(this.items.length >0){
+            this.selectedItem = this.items[0];
+        }
+    }
+    onClick(item:any){
+        this.selectedItem = item;
+    }
 
 }
