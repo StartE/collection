@@ -12,7 +12,6 @@
     font-size: 0.95rem;
     outline: none;
     color: $light-gray;
-    //font-style:italic;
     font-weight: 550;
 }
 .nav-item{
@@ -22,6 +21,7 @@
     cursor: pointer;
     outline: none;
     color: $white;
+    font-weight: 500;
 }
 .nav-title:hover{
     color: $white;
@@ -32,7 +32,7 @@
    color: $white;
 }
 .selected{
-    color: $blue;
+    color: $blue1;
     background: $blue-gray;
 }
 .line{
