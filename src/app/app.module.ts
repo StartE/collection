@@ -10,9 +10,10 @@ import { DataScienceComponent } from './data-science/data-science.component';
 import { LifelogComponent } from './lifelog/lifelog.component';
 import { ResourcesComponent } from './resources/resources.component';
 
-import { HeaderComponent } from './layout/header/header.component';
-import { FooterComponent } from './layout/footer/footer.component';
-import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { ArticleComponent } from './shared/article/article.component';
 
 import { DashboardComponent } from './web-dev/dashboard/dashboard.component';
 import { D3ChartComponent } from './web-dev/d3-chart/d3-chart.component';
@@ -35,6 +36,7 @@ import { ChartJsComponent } from './web-dev/chart-js/chart-js.component';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
+    ArticleComponent,
 
     DashboardComponent,
     D3ChartComponent,

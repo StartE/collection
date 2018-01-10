@@ -9,6 +9,13 @@ export class WebDevComponent implements OnInit {
 
     title:string = "Web Development";
     showSidebar:boolean = true;
+    items=[
+        {name:'Dashboard',isChildren:false,open:false,url:'/web/dashboard',children:[]},
+        {name:'Chart',isChildren:false,open:false,url:null,children:[
+          {name:'D3-Chart',isChildren:true,url:'/web/d3-chart'},
+          {name:'Chart.js',isChildren:true,url:'/web/chart-js'}]
+        }
+    ]
     constructor() { }
 
     ngOnInit() {

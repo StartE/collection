@@ -1,6 +1,34 @@
-<app-header [title]="title"></app-header>
 <div class="main">
-  <app-sidebar></app-sidebar>
-  <router-outlet></router-outlet>
+  <div class="row no-gutters main-page">
+    <div class="" [ngClass]="{'col-10':showSidebar == true,'col-12':showSidebar == false}">
+        <div class="row no-gutters header">
+            <div class="col-8">
+                <div class="web-icon"><span><i class="fa fa-github-alt"></i></span></div>
+                <app-header [title]="title" class="header-title"></app-header>
+                <div class="right-icon link-item" (click)="gotoGithub()"><span><i class="fa fa-github"></i></span></div>
+                <div class="right-icon link-item"routerLink="/home"><span><i class="fa fa-home"></i></span></div>
+            </div>
+        </div>
+        <div class="row no-gutters wraper">
+            <div class="col-8 content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="row no-gutters wraper">
+                <div class="col-8">
+                    <app-footer></app-footer>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar" [ngClass]="{'col-2':showSidebar == true,'hideSidebar':showSidebar == false}">
+        <app-sidebar [items]="items"></app-sidebar>
+    </div>
+  </div>
 </div>
-<app-footer></app-footer>
+
+<div class="sidebar-icon" (click)="toggle()">
+    <i *ngIf = "!showSidebar" class="fa fa-bars"></i>
+    <i *ngIf = "showSidebar" class="fa fa-close"></i>
+</div>
