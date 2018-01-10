@@ -31,15 +31,15 @@ $footer-height:50px;
 }
 .wraper{
     justify-content: center;
+    width: 100%;
 }
 .content{
     background-color: $white;
     border: 1px solid $border-grey;
     box-sizing: border-box;
     border-bottom: 1px solid $border-grey2;
-    margin:2rem 3rem;
+    margin:1.5rem 0;
     padding: 1rem 1rem;
-    border-radius: 0.5rem;
 }
 .sidebar{
     width: 100%;
@@ -52,10 +52,9 @@ $footer-height:50px;
     position: absolute;
     bottom: 0px;
     display: block;
-    padding: 1.5rem 3rem;//fix main page overflow
+    padding: 1.5rem 0;//fix main page overflow
     min-height: $footer-height;
     background: $footer-grey;
-    justify-content: center;
 }
 .right-icon{
     float: right;
@@ -88,6 +87,6 @@ $footer-height:50px;
     bottom: 3rem;
     cursor: pointer;
     line-height: 0;
-    padding: 3px 4px;
-    border: 1px solid $red2;
+    padding: 2px 4px;
+    border-radius: 2px;
 }

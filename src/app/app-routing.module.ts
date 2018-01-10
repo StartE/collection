@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { WebDevComponent } from './web-dev/web-dev.component';
 import { DataScienceComponent } from './data-science/data-science.component';
 import { LifelogComponent } from './lifelog/lifelog.component';
+import { ResourcesComponent } from './resources/resources.component';
 
 import { DashboardComponent } from './web-dev/dashboard/dashboard.component';
 import { D3ChartComponent } from './web-dev/d3-chart/d3-chart.component';
@@ -50,6 +51,9 @@ const routes: Routes = [
     redirectTo: 'python',
     pathMatch: 'full',
     }],
+  },
+  {
+    path:'resources',component:ResourcesComponent
   },
   {
       path:'lifelog',component:LifelogComponent

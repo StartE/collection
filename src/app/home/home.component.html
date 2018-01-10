@@ -1,7 +1,7 @@
 <div class="background d-flex  justify-content-center align-items-center">
     <div class="main-page">
         <div class="row no-gutters page-img">
-            <div class="" (click)="gotoGithub()">
+            <div class="" title="Go to Github" (click)="gotoGithub()">
                 <img class="img" src="./../../assets/img/photo.jpg">
             </div>
         </div>
@@ -9,20 +9,20 @@
             <span>Start<i class = "icon fa fa-etsy"></i>'s Blog</span>
         </div>
         <div class="row no-gutters page-intro">
-            <span>Adversity reveals genius.</span>
+            <span>{{'Adversity reveals genius'|uppercase}}</span>
         </div>
         <div class="row no-gutters">
-            <div class="col-3 link-item" routerLink="/web">
-                <span>Web Dev</span>
+            <div class="col-3 link-item" title="Web and Design" routerLink="/web">
+                <span>Web & Design</span>
             </div>
-            <div class="col-3 link-item" routerLink="/data">
+            <div class="col-3 link-item" title="Data Science" routerLink="/data">
                 <span>Data Science</span>
             </div>
-            <div class="col-3 link-item" routerLink="/lifelog">
-                <span>Lifelog</span>
+            <div class="col-3 link-item" title="Resources" routerLink="/resources">
+                <span>Rescources</span>
             </div>
-            <div class="col-3 link-item" (click)="gotoGithub()">
-                <span>Github</span>
+            <div class="col-3 link-item" title= "LifeLog" routerLink="/lifelog">
+                <span>Lifelog</span>
             </div>
         </div>
     </div>

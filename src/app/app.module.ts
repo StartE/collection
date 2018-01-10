@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { WebDevComponent } from './web-dev/web-dev.component';
 import { DataScienceComponent } from './data-science/data-science.component';
 import { LifelogComponent } from './lifelog/lifelog.component';
+import { ResourcesComponent } from './resources/resources.component';
 
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -29,6 +30,7 @@ import { ChartJsComponent } from './web-dev/chart-js/chart-js.component';
     WebDevComponent,
     DataScienceComponent,
     LifelogComponent,
+    ResourcesComponent,
 
     HeaderComponent,
     FooterComponent,
