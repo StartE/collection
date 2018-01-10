@@ -19,6 +19,7 @@ $footer-height:50px;
     width: 100%;
     height: $header-height;
     line-height:$header-height;
+    box-sizing: border-box;
     border-bottom: 3px solid $quora-red;
     background: $white;
     color:$blue-light-grey;
@@ -30,6 +31,7 @@ $footer-height:50px;
 .content{
     background-color: $white;
     border: 1px solid $border-grey;
+    box-sizing: border-box;
     border-bottom: 1px solid $border-grey2;
     margin:2rem 3rem;
     padding: 1rem 1rem;
@@ -44,10 +46,11 @@ $footer-height:50px;
 .footer{
     width: 100%;
     position: absolute;
-    bottom: 0;
-    height: $footer-height;
+    bottom: 0px;
+    display: block;
+    padding: 1.5rem 3rem;//fix main page overflow
+    min-height: $footer-height;
     background: $footer-grey;
-    padding: 1rem 2rem;
 }
 .right-icon{
     float: right;
