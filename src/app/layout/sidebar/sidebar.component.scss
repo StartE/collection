@@ -11,7 +11,7 @@
     cursor: pointer;
     font-size: 0.95rem;
     outline: none;
-    color: $light-gray;
+    color: $white;
     font-weight: 550;
 }
 .nav-item{
@@ -24,15 +24,15 @@
     font-weight: 500;
 }
 .nav-title:hover{
-    color: $white;
-    background: $blue; 
+    background: $red2;
+    color: white;
 }
 .nav-item:hover{
-   background: $blue; 
-   color: $white;
+   background: $red2; 
+   color:white;
 }
 .selected{
-    color: $blue1;
+    color: $red2;
     background: $blue-gray;
 }
 .line{

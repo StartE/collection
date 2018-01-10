@@ -1,24 +1,32 @@
 <div class="main">
   <div class="row no-gutters main-page">
-    <div class="sidebar" [ngClass]="{'col-2':showSidebar == true,'hideSidebar':showSidebar == false}">
-        <app-sidebar></app-sidebar>
-    </div>
     <div class="" [ngClass]="{'col-10':showSidebar == true,'col-12':showSidebar == false}">
         <div class="row no-gutters header">
-            <div class="col-6">
-                <div class="left-icon link-item" (click)="toggle()"><span><i class="fa fa-bars"></i></span></div>
+            <div class="col-8">
                 <div class="web-icon"><span><i class="fa fa-github-alt"></i></span></div>
                 <app-header [title]="title" class="header-title"></app-header>
-            </div>
-            <div class="col-6">
                 <div class="right-icon link-item" (click)="gotoGithub()"><span><i class="fa fa-github"></i></span></div>
                 <div class="right-icon link-item"routerLink="/home"><span><i class="fa fa-home"></i></span></div>
             </div>
         </div>
-        <div class="row no-gutters content"><router-outlet></router-outlet></div>
+        <div class="row no-gutters wraper">
+            <div class="col-8 content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
         <div class="row no-gutters footer">
-            <app-footer></app-footer>
+            <div class="col-8">
+                <app-footer></app-footer>
+            </div>
         </div>
     </div>
+    <div class="sidebar" [ngClass]="{'col-2':showSidebar == true,'hideSidebar':showSidebar == false}">
+        <app-sidebar></app-sidebar>
+    </div>
   </div>
+</div>
+
+<div class="sidebar-icon" (click)="toggle()">
+    <i *ngIf = "!showSidebar" class="fa fa-bars"></i>
+    <i *ngIf = "showSidebar" class="fa fa-close"></i>
 </div>

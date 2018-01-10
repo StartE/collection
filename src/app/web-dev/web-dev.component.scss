@@ -23,10 +23,14 @@ $footer-height:50px;
     border-bottom: 3px solid $red;
     background: $white;
     color:$blue-light-grey;
-    padding: 0 2rem;
+    justify-content: center;
 }
 .header-title{
     font-size: 1.4rem;
+    float: left;
+}
+.wraper{
+    justify-content: center;
 }
 .content{
     background-color: $white;
@@ -51,16 +55,11 @@ $footer-height:50px;
     padding: 1.5rem 3rem;//fix main page overflow
     min-height: $footer-height;
     background: $footer-grey;
+    justify-content: center;
 }
 .right-icon{
     float: right;
     margin: 0 1rem 0 0.5rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-.left-icon{
-    float:left;
-    margin: 0 2rem 0 1.5rem;
     font-size: 1.2rem;
     cursor: pointer;
 }
@@ -79,4 +78,16 @@ $footer-height:50px;
     color: $red2;
     font-weight: 450;
     transition: color 0.2s ease;
+}
+.sidebar-icon{
+    position: fixed;
+    background: $grey-dark;
+    color: $red2;
+    z-index: 1050;
+    right:3rem;
+    bottom: 3rem;
+    cursor: pointer;
+    line-height: 0;
+    padding: 3px 4px;
+    border: 1px solid $red2;
 }
