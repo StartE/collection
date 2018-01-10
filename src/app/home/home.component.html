@@ -1,9 +1,29 @@
 <div class="background d-flex  justify-content-center align-items-center">
     <div class="main-page">
-      <div class="row no-gutters">StartE's Blog</div>
-      <div class="row no-gutters">
-        <div class="col-6" routerLink="/web">web</div>
-        <div class="col-6" routerLink="/data">data</div>
-      </div>
+        <div class="row no-gutters page-img">
+            <div class="" (click)="gotoGithub()">
+                <img class="img" src="./../../assets/img/photo.jpg">
+            </div>
+        </div>
+        <div class="row no-gutters page-title">
+            <span>Start<i class = "icon fa fa-etsy"></i>'s Blog</span>
+        </div>
+        <div class="row no-gutters page-intro">
+            <span>Adversity reveals genius.</span>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-3 link-item" routerLink="/web">
+                <span>Web Dev</span>
+            </div>
+            <div class="col-3 link-item" routerLink="/data">
+                <span>Data Science</span>
+            </div>
+            <div class="col-3 link-item" routerLink="/lifelog">
+                <span>Lifelog</span>
+            </div>
+            <div class="col-3 link-item" (click)="gotoGithub()">
+                <span>Github</span>
+            </div>
+        </div>
     </div>
 </div>

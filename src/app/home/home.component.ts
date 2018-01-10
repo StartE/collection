@@ -7,12 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
-  navigate(item) {
-    console.log(item)
-  }
+    ngOnInit() {
+    }
+    navigate(item) {
+        console.log(item)
+    }
+    gotoGithub(){
+        window.open('https://github.com/StartE')
+    }
 
 }

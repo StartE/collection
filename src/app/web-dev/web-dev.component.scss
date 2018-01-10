@@ -20,7 +20,7 @@ $footer-height:50px;
     height: $header-height;
     line-height:$header-height;
     box-sizing: border-box;
-    border-bottom: 3px solid $quora-red;
+    border-bottom: 3px solid $red;
     background: $white;
     color:$blue-light-grey;
     padding: 0 2rem;
@@ -67,6 +67,16 @@ $footer-height:50px;
 .web-icon{
     float: left;
     margin: 0 0.5rem;
-    color: $quora-red;
+    color: $red;
     font-size: 1.5rem;
+}
+.link-item{
+    outline: none;
+    color: $font-grey;
+    cursor: pointer;
+}
+.link-item:hover{
+    color: $red2;
+    font-weight: 450;
+    transition: color 0.2s ease;
 }

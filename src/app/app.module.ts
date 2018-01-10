@@ -7,11 +7,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { WebDevComponent } from './web-dev/web-dev.component';
 import { DataScienceComponent } from './data-science/data-science.component';
+import { LifelogComponent } from './lifelog/lifelog.component';
+
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
+
 import { DashboardComponent } from './web-dev/dashboard/dashboard.component';
 import { D3ChartComponent } from './web-dev/d3-chart/d3-chart.component';
+
 import { PythonComponent } from './data-science/python/python.component';
 import { AlgorithmComponent } from './data-science/algorithm/algorithm.component';
 import { ChartJsComponent } from './web-dev/chart-js/chart-js.component';
@@ -24,6 +28,7 @@ import { ChartJsComponent } from './web-dev/chart-js/chart-js.component';
     HomeComponent,
     WebDevComponent,
     DataScienceComponent,
+    LifelogComponent,
 
     HeaderComponent,
     FooterComponent,
@@ -33,7 +38,7 @@ import { ChartJsComponent } from './web-dev/chart-js/chart-js.component';
     D3ChartComponent,
     PythonComponent,
     AlgorithmComponent,
-    ChartJsComponent
+    ChartJsComponent,
   ],
   imports: [
     BrowserModule,

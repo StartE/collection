@@ -7,14 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WebDevComponent implements OnInit {
 
-  title:string = "Web Development";
-  showSidebar:boolean = true;
-  constructor() { }
+    title:string = "Web Development";
+    showSidebar:boolean = true;
+    constructor() { }
 
-  ngOnInit() {
-  }
-  toggle(){
-    this.showSidebar = !this.showSidebar;
-  }
+    ngOnInit() {
+    }
+    toggle(){
+        this.showSidebar = !this.showSidebar;
+    }
+    gotoGithub(){
+        window.open('https://github.com/StartE')
+    }
 
 }

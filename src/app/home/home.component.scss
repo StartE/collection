@@ -1,17 +1,55 @@
+@import "./../../assets/style/variable.scss";
+$imge-size:5rem;
 .main-page{
     width: 30rem;
-    height: 20rem;
-    border: 1px solid grey;
-    padding: 3rem 5rem;
+    height: 30rem;
+    //border: 1px solid $border-grey2;
+    padding: 0.5rem 2rem;
     background: white;
-    //margin-left: -15rem;
-    //margin-top: -10rem;
+    border-radius: 0.5rem;
+    box-sizing:border-box;
 }
 .background{
     margin: 0;
     width: 100%;
     height: 100%;
-    background: lightblue;
-    //padding-left:50%;
-    //padding-top:20%;
+    background: $white;
+}
+.page-title{
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0.3rem 0;
+    justify-content: center;
+}
+.page-intro{
+    justify-content: center;
+    color: $font-grey;
+    font-weight: 450;
+    padding: 0rem 0 1rem 0;
+}
+.page-img{
+    justify-content: center;
+    cursor: pointer;
+}
+.img{
+    border-radius: 50%;
+    width: $imge-size;
+    height: $imge-size;
+    padding: 5px;
+    border: 1px dashed $font-grey;
+}
+.icon{
+    color: $red;
+}
+.link-item{
+    text-align: center;
+    outline: none;
+    font-style: italic;
+    color: $font-grey;
+    cursor: pointer;
+}
+.link-item:hover{
+    color: $red2;
+    font-weight: 450;
+    transition: color 0.2s ease;
 }

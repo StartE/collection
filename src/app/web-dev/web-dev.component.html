@@ -6,13 +6,13 @@
     <div class="" [ngClass]="{'col-10':showSidebar == true,'col-12':showSidebar == false}">
         <div class="row no-gutters header">
             <div class="col-6">
-                <div class="left-icon" (click)="toggle()"><span><i class="fa fa-bars"></i></span></div>
+                <div class="left-icon link-item" (click)="toggle()"><span><i class="fa fa-bars"></i></span></div>
                 <div class="web-icon"><span><i class="fa fa-github-alt"></i></span></div>
                 <app-header [title]="title" class="header-title"></app-header>
             </div>
             <div class="col-6">
-                <div class="right-icon"><span><a href="https://github.com/StartE/collection"><i class="fa fa-github"></i></a></span></div>
-                <div class="right-icon"routerLink="/home"><span><i class="fa fa-home"></i></span></div>
+                <div class="right-icon link-item" (click)="gotoGithub()"><span><i class="fa fa-github"></i></span></div>
+                <div class="right-icon link-item"routerLink="/home"><span><i class="fa fa-home"></i></span></div>
             </div>
         </div>
         <div class="row no-gutters content"><router-outlet></router-outlet></div>
