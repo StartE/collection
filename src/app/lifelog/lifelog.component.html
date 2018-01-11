@@ -1,3 +1,23 @@
-<p>
-  lifelog works!
-</p>
+<div class="row no-gutters resource">
+    <div class = "col-9" >
+        <div class = "resource-title">
+            <div class= "header-title">This is My Life</div>
+            <div class="right-icon link-item" (click)="gotoGithub()"><span><i class="fa fa-github"></i></span></div>
+            <div class="right-icon link-item" routerLink="/home"><span><i class="fa fa-home"></i></span></div>
+        </div>
+    </div>
+</div>
+<div class="row no-gutters">
+    <div class="col-9">
+        <div class="article-content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="article-list">
+            <div *ngFor ="let article of articles" class="list-item"(click)= "onSelect(article)"
+            [ngClass]="{'selected':selectedArticle == article}"
+            [routerLink] = "['/lifelog/article',article.id]"><span >{{article.name}}-------</span></div>
+        </div>
+    </div>
+</div>

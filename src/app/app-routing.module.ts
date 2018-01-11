@@ -59,11 +59,18 @@ const routes: Routes = [
         {
             path: 'article/:id',
             component: ArticleComponent,
+            
         }
     ]
   },
   {
-      path:'lifelog',component:LifelogComponent
+      path:'lifelog',component:LifelogComponent,
+      children: [
+        {
+            path: 'article/:id',
+            component: ArticleComponent,
+        }
+      ]
   },
   { path: '**', redirectTo: '' },
 ];

@@ -1,0 +1,76 @@
+@import "./../../assets/style/variable.scss";
+$header-height:55px;
+.resource{
+    box-sizing: border-box;
+    border-bottom: 3px solid $red;
+    height: $header-height;
+    line-height: $header-height;
+}
+.resource-title{
+    padding-left: 10%;
+}
+.article-content{
+    margin-left:10%;
+    margin-right: 10%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.article-list{
+    margin:2rem 0.5rem 2rem 0;
+}
+$list-padding-left:1rem;
+$list-padding-top:0.5rem;
+$circle:0.5rem;
+.list-item{
+    padding: $list-padding-top $list-padding-left;
+    border-left: 1px solid $border-grey2;
+    outline: none;
+    box-sizing: border-box;
+}
+.list-item:hover{
+    color: $red2;
+}
+.list-item.selected{
+    font-weight: 500;
+    color: $red;
+}
+.list-item:hover::before{
+    @extend .before;
+    background: $red2;
+}
+
+.list-item.selected ::before{
+    @extend .before;
+    background: $red;
+}
+.before{
+    font-weight: 500;
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+    margin-left:-($list-padding-left+$circle/2);
+    margin-top:$list-padding-top;
+    height: $circle;
+    width: $circle;
+}
+
+.right-icon{
+    float: right;
+    margin: 0 1rem 0 0.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.link-item{
+    outline: none;
+    color: $font-grey;
+    cursor: pointer;
+}
+.link-item:hover{
+    color: $red2;
+    font-weight: 450;
+    transition: color 0.2s ease;
+}
+.header-title{
+    font-size: 1.4rem;
+    float: left;
+}

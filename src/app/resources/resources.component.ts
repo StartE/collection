@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-resources',
   templateUrl: './resources.component.html',
@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResourcesComponent implements OnInit {
 
-  constructor() { }
+    constructor(private router:Router) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        if(this.articles.length >0){
+            this.selectedArticle = this.articles[0];
+            this.router.navigate(['/resources/article/'+this.articles[0].id])
+        }
+    }
+    articles:any[]=[
+        {id:1,name:'w222111uuuuu'},
+        {id:2,name:'wuu323uuu'},
+        {id:3,name:'ewwe23'},
+        {id:4,name:'wusdd'},
+    ]
+    selectedArticle = null;
+
+    onSelect(article){
+        this.selectedArticle = article;
+    }
 
 }

@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
-  selector: 'app-article',
-  templateUrl: './article.component.html',
-  styleUrls: ['./article.component.scss']
+    selector: 'app-article',
+    templateUrl: './article.component.html',
+    styleUrls: ['./article.component.scss']
 })
-export class ArticleComponent implements OnInit {
+export class ArticleComponent implements OnInit,OnDestroy  {
 
-  constructor() { }
+    sub:any;
+    articleId:number;
+    constructor(private activatedRoute: ActivatedRoute) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        this.sub = this.activatedRoute.params.subscribe(params =>{
+            
+            if(params['id'] != undefined){
+                this.articleId = parseInt(params['id']);
+            }
+        })
+      
+    }
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
 
 }
