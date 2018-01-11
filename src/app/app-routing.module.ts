@@ -7,6 +7,7 @@ import { DataScienceComponent } from './data-science/data-science.component';
 import { LifelogComponent } from './lifelog/lifelog.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { ArticleComponent } from './shared/article/article.component';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 
 import { DashboardComponent } from './web-dev/dashboard/dashboard.component';
 import { D3ChartComponent } from './web-dev/d3-chart/d3-chart.component';
@@ -59,7 +60,6 @@ const routes: Routes = [
         {
             path: 'article/:id',
             component: ArticleComponent,
-            
         }
     ]
   },
@@ -72,7 +72,10 @@ const routes: Routes = [
         }
       ]
   },
-  { path: '**', redirectTo: '' },
+  {
+    path:'page-not-found',component:PageNotFoundComponent
+  },
+  { path: '**', redirectTo: '/page-not-found' },
 ];
 
 

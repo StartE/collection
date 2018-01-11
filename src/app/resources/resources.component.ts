@@ -12,7 +12,7 @@ export class ResourcesComponent implements OnInit {
     ngOnInit() {
         if(this.articles.length >0){
             this.selectedArticle = this.articles[0];
-            this.router.navigate(['/resources/article/'+this.articles[0].id])
+            this.router.navigate(['/resources/article/'+this.articles[0].id]);
         }
     }
     articles:any[]=[

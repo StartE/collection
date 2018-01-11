@@ -1,0 +1,27 @@
+@import "./../../../assets/style/variable.scss";
+
+.warn{
+    width: 20rem;
+    height: 10rem;
+}
+.warn-alert{
+    color: $red;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+.page-not-fond{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+.warn-info{
+    padding: 0.5rem 0;
+}
+.back-home{
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: $font-grey;
+}
+.back-home:hover{
+    color: $red2;
+}

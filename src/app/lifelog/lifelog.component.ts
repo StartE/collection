@@ -12,7 +12,7 @@ export class LifelogComponent implements OnInit {
     ngOnInit() {
         if(this.articles.length >0){
             this.selectedArticle = this.articles[0];
-            this.router.navigate(['/lifelog/article/'+this.articles[0].id])
+            this.router.navigate(['/lifelog/article/'+this.articles[0].id]);
         }
     }
     articles:any[]=[
