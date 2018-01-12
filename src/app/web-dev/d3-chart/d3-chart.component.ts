@@ -12,4 +12,5 @@ export class D3ChartComponent implements OnInit {
   ngOnInit() {
   }
 
+
 }
