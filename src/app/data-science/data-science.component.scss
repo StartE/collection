@@ -27,6 +27,7 @@ $footer-height:50px;
 .header-title{
     font-size: 1.4rem;
     float: left;
+    color: $font-color;
 }
 .wraper{
     justify-content: center;
@@ -45,11 +46,13 @@ $footer-height:50px;
     height: 100%;
     background: $grey-dark;
     z-index: 1000;
+    position: fixed;
+    right: 0;
+    top:0;
+    bottom: 0;
 }
 .footer{
     width: 100%;
-    position: absolute;
-    bottom: 0px;
     display: block;
     padding: 1.5rem 0;//fix main page overflow
     min-height: $footer-height;

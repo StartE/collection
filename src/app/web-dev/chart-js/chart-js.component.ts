@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetSrcService } from './../../services/get-src.service';
 
 @Component({
   selector: 'app-chart-js',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChartJsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor( private getSrcService:GetSrcService) { }
+  src = './../../../assets/file/test.ts';
+  someCode:string = '';
   ngOnInit() {
+      this.getSrcService.getSource(this.src).subscribe(
+          res =>{
+            this.someCode = res;
+          },
+          error =>{
+            console.log(error)
+          });
   }
 
 }
