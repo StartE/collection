@@ -1,0 +1,73 @@
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import * as d3 from 'd3';
+
+    @ViewChild('chart1') private chartContainer1:ElementRef;
+    xScale:any;
+    yScale:any;
+    svg1:any;
+    chart1:any;
+    xAxis1:any;
+    yAxis1:any;
+    width:number = 800;
+    height:number = 400;
+    marginTop:number = 50;
+    marginLeft:number = 50;
+    marginBottom:number = 50;
+    marginRight:number = 50;
+    data = [
+            [10,10],
+            [20,15],
+            [40,20]
+    ];
+    chartWidth = this.width-this.marginLeft - this.marginRight;
+    chartHeight = this.height - this.marginTop - this.marginBottom;
+    ngOnInit() {
+        this.initChart();
+        this.setScale();
+        this.drawChart();
+    }
+    initChart(){
+        let element = this.chartContainer1.nativeElement;
+        this.svg1 = d3.select(element).append('svg')
+            .attr('width',this.width)
+            .attr('height',this.height)
+
+        this.chart1 = this.setChart(this.svg1)
+        this.xAxis1 = this.setAxisX(this.svg1)
+        this.yAxis1 = this.setAxisY(this.svg1)
+    }
+    setChart(svg:any){
+        return svg.append('g')
+            .attr('class','chart1')
+            .attr('width',this.width -this.marginLeft - this.marginRight)
+            .attr('height',this.height - this.marginTop - this.marginBottom)
+    }
+    setAxisX(svg:any){
+        return svg.append('g')
+            .attr('class','axis axis-x')
+            .attr('transform',`translate(${this.marginLeft},${this.height-this.marginBottom})`);
+    }
+    setAxisY(svg:any){
+        return svg.append('g')
+            .attr('class','axis axis-y')
+            .attr('transform',`translate(${this.marginLeft},${this.marginTop})`)
+    }
+    setScale(){
+        let xDomain = this.data.map(d => d[0]);
+        let yMax = d3.max(this.data,d=> d[1]);
+        this.xScale = d3.scaleBand().padding(1).domain(xDomain).rangeRound([0,this.chartWidth]);
+        this.yScale = d3.scaleLinear().domain([0,yMax]).range([this.chartHeight,0]);
+    }
+    drawChart(){
+        let barWidth = 10;
+        this.xAxis1.transition().call(d3.axisBottom(this.xScale));
+        this.yAxis1.transition().call(d3.axisLeft(this.yScale));
+        let update = this.chart1.selectAll('.chart1').data(this.data);
+        update.enter().append('rect')
+            .attr('class','bar')
+            .attr('x',d => this.marginLeft + this.xScale(d[0])-barWidth/2)
+            .attr('y',d => this.marginBottom + this.yScale(d[1]))
+            .attr('width',barWidth)
+            .attr('height',d => this.chartHeight - this.yScale(d[1]))
+            .style('fill','#e37f7f')
+    }

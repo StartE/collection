@@ -1,5 +1,23 @@
 <p>
   chart-js works!
 </p>
-<pre><code highlight class="typescript" [code]="someCode">   
+<pre><code highlight class="typescript">
+    @ViewChild('chart1') private chartContainer1:ElementRef;
+    svg1:any;
+    chart1:any;
+    xAxis1:any;
+    yAxis1:any;
+    width:number = 700;
+    height:number = 400;
+    marginTop:number = 50;
+    marginLeft:number = 50;
+    marginBottom:number = 50;
+    marginRight:number = 50;
+    chartWidth = this.width-this.marginLeft - this.marginRight;
+    chartHeight = this.height - this.marginTop - this.marginBottom;
+    data = [
+            [10,10],
+            [20,15],
+            [40,20]
+        ];
 </code></pre>

@@ -1,5 +1,25 @@
 <h1>Angular5: Responsive Chart by D3-V4 </h1>
 <p>Now I will show how to dram a responsive chart by d3-v4 under angular5.</p>
-<h2>1. draw a svg</h2>
-<p></p>
+<h2>1. draw a simple chart</h2>
+<p>First,prepare a div as chart container</p>
+<h3>d3-chart.component.html</h3>
+<pre><code highlight class="html" [code]="htmlCode1"></code></pre>
+<h3>d3-chart.component.ts</h3>
+<pre><code highlight class="typescript" [code]="tsCode1"></code></pre>
+<h3>d3-chart Result</h3>
 <div class = "drawChart" #chart1></div>
+<h2>2. make chart responsive</h2>
+<h3>d3-chart.component.scss</h3>
+<pre><code highlight class="scss" [code]="cssCode2"></code></pre>
+<h3>d3-chart.component.ts</h3>
+<pre><code highlight class="typescript" [code]="tsCode2"></code></pre>
+<div class = "drawChart" #chart2></div>
+<p>Now you can zoom your browser, and you will find the second chart resize when the browser size changes, however the first chart remains same</p>
+<h2>3. dynamic update chart with transition effect when data changes</h2>
+<h3>d3-chart.component.ts</h3>
+<button type="button" (click)="updateData()">Refresh</button>
+<div class = "drawChart" #chart3></div>
+<h2>4. add text and tooltip for chart</h2>
+<h3>.ts</h3>
+<h3>.scss</h3>
+<div class = "drawChart" #chart4></div>
