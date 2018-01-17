@@ -1,1 +1,0 @@
-<div class = "drawChart" #chart1></div>

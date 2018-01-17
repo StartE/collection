@@ -52,9 +52,8 @@ export class D3ChartComponent implements OnInit {
     cssCode2 = '';
     tsCode2 = '';
 
-    constructor(private getSrcService:GetSrcService) { }
+    constructor() { }
     ngOnInit() {
-        this.getSrcCode();
         this.initChart();
         this.setScale(this.data);
         this.drawChart1(this.data);
@@ -62,36 +61,7 @@ export class D3ChartComponent implements OnInit {
         this.drawChart3(this.data);
         this.drawChart4(this.data);
     }
-    getSrcCode(){
-        this.getSrcService.getSource('./../../../assets/file/d3/d3-1.html.txt').subscribe(
-          res =>{
-            this.htmlCode1 = res;
-          },
-          error =>{
-            console.log(error)
-          });
-        this.getSrcService.getSource('./../../../assets/file/d3/d3-1.ts.txt').subscribe(
-          res =>{
-            this.tsCode1 = res;
-          },
-          error =>{
-            console.log(error)
-          });
-        this.getSrcService.getSource('./../../../assets/file/d3/d3-2.scss.txt').subscribe(
-          res =>{
-            this.cssCode2 = res;
-          },
-          error =>{
-            console.log(error)
-          });
-        this.getSrcService.getSource('./../../../assets/file/d3/d3-2.ts.txt').subscribe(
-          res =>{
-            this.tsCode2 = res;
-          },
-          error =>{
-            console.log(error)
-          });
-    }
+    
     initChart(){
         let element1 = this.chartContainer1.nativeElement;
         let element2 = this.chartContainer2.nativeElement;
