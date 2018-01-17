@@ -134,6 +134,7 @@ export class D3ChartComponent implements OnInit {
             .append('div')
             .classed('svg-container',true)
             .append('svg')
+            .attr('id','svg4')
             .attr('preserveAspectRatio','xMinYMin meet')
             .attr('viewBox','0 0 800 400')
             .classed('svg-content-responsive',true)
@@ -239,7 +240,7 @@ export class D3ChartComponent implements OnInit {
         }
     }
     drawChart4(data){
-        let barWidth = 20;
+        let barWidth = 50;
         this.xAxis4.transition().call(d3.axisBottom(this.xScale));
         this.yAxis4.transition().call(d3.axisLeft(this.yScale));
         let update = this.chart4.selectAll('g').data(data);
@@ -254,17 +255,18 @@ export class D3ChartComponent implements OnInit {
             .attr('height',d => this.chartHeight - this.yScale(d[1]))
             .style('fill','#e37f7f')
             .on('mouseover',function(d){
-                d3.select(this).style('cursor','pointer');
                 toolTip.transition()
                     .style('opacity',1);
-                toolTip.html('d3-chart '+d[1]+' by anuguar5')
-                    .style('left',d3.event.pageX+20+'px')
-                    .style('top',d3.event.pageY+20+'px');
+                toolTip.html('d3-chart: '+d[1])
+                    .style('left',(d3.event.pageX)+'px')
+                    .style('top',(d3.event.pageY)+'px');
+                d3.select(this).style('cursor','pointer');
+
             })
             .on('mouseout',function(d){
                 toolTip.transition()
                     .style('opacity',0);
-            })
+            });
 
         let textHeight = 10;
         update.enter().append('text')
