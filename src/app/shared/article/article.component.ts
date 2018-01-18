@@ -19,13 +19,11 @@ export class ArticleComponent implements OnInit,OnDestroy  {
             
             if(params['id'] != undefined){
                 this.articleId = parseInt(params['id']);
-                console.log(this.articleId)
                 if(this.articleId <= this.MAX_SIZE_OF_ARTICLES && this.articleId > 0){
                     this.getSrc();
                 }
                 else if(this.articleId > this.MAX_SIZE_OF_ARTICLES){
-                    console.log(this.articleId+'kkkk')
-                    this.router.navigate(['./page-not-found']);
+                    this.router.navigate(['/page-not-found']);
                 }
             }
         })
