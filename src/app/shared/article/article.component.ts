@@ -11,7 +11,7 @@ export class ArticleComponent implements OnInit,OnDestroy  {
 
     sub:any;
     articleId:number;
-    MAX_SIZE_OF_ARTICLES:number = 10;
+    MAX_SIZE_OF_ARTICLES:number = 7;
     mdPath:string = '';
     constructor(private router:Router,private activatedRoute: ActivatedRoute, private getSrcService:GetSrcService ) { }
     ngOnInit() {
@@ -19,10 +19,13 @@ export class ArticleComponent implements OnInit,OnDestroy  {
             
             if(params['id'] != undefined){
                 this.articleId = parseInt(params['id']);
-                if(this.articleId > this.MAX_SIZE_OF_ARTICLES){
-                    this.router.navigate(['/page-not-found'])
-                }else{
+                console.log(this.articleId)
+                if(this.articleId <= this.MAX_SIZE_OF_ARTICLES && this.articleId > 0){
                     this.getSrc();
+                }
+                else if(this.articleId > this.MAX_SIZE_OF_ARTICLES){
+                    console.log(this.articleId+'kkkk')
+                    this.router.navigate(['./page-not-found']);
                 }
             }
         })
