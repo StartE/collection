@@ -30,7 +30,7 @@ export class GetSrcService {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
-    console.error(errMsg);
+    //console.error(errMsg);
     return Observable.throw(errMsg);
   }
 }

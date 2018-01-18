@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
-import { HighlightModule } from 'ngx-highlightjs';
+import { MarkdownModule } from 'ngx-md';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -55,7 +55,7 @@ import { GetSrcService } from './services/get-src.service';
     CommonModule,
     HttpModule,
     AppRoutingModule,
-    HighlightModule.forRoot({ theme: 'atom-one-light' }),
+    MarkdownModule.forRoot(),
   ],
   providers: [
       GetSrcService

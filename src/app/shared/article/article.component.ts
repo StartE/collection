@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Router,ActivatedRoute, ParamMap } from '@angular/router';
+import { GetSrcService } from './../../services/get-src.service';
 
 @Component({
     selector: 'app-article',
@@ -11,8 +12,8 @@ export class ArticleComponent implements OnInit,OnDestroy  {
     sub:any;
     articleId:number;
     MAX_SIZE_OF_ARTICLES:number = 10;
-    constructor(private router:Router,private activatedRoute: ActivatedRoute) { }
-
+    mdPath:string = '';
+    constructor(private router:Router,private activatedRoute: ActivatedRoute, private getSrcService:GetSrcService ) { }
     ngOnInit() {
         this.sub = this.activatedRoute.params.subscribe(params =>{
             
@@ -20,9 +21,14 @@ export class ArticleComponent implements OnInit,OnDestroy  {
                 this.articleId = parseInt(params['id']);
                 if(this.articleId > this.MAX_SIZE_OF_ARTICLES){
                     this.router.navigate(['/page-not-found'])
+                }else{
+                    this.getSrc();
                 }
             }
         })
+    }
+    getSrc(){
+        this.mdPath = './../../../assets/file/'+this.articleId+'.md';
     }
     ngOnDestroy() {
         this.sub.unsubscribe();
