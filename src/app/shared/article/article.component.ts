@@ -13,7 +13,6 @@ export class ArticleComponent implements OnInit,OnDestroy  {
     articleId:number;
     MAX_SIZE_OF_ARTICLES:number = 7;
     mdPath:string = '';
-
     constructor(private router:Router,private activatedRoute: ActivatedRoute, private getSrcService:GetSrcService ) { }
     ngOnInit() {
         this.sub = this.activatedRoute.params.subscribe(params =>{

@@ -2,7 +2,6 @@
 @import "~bootstrap/scss/bootstrap";
 @import "./assets/style/variable.scss";
 @import "./assets/style/prism-my.scss";
-
 //@import "~prismjs/themes/prism-coy.css";
 
 html, body{
@@ -14,7 +13,7 @@ h1{
     font-size: 1.4rem !important;
     text-transform: uppercase;
     margin: 0 0 1.5rem 0 !important;
-    color: $red2 !important;
+    color: $red !important;
 }
 h1:after {
     content: "";
@@ -28,7 +27,7 @@ h1:after {
 h2{
     font-size: 1.2rem !important;
     margin: 1rem 0rem 1rem 0rem !important;
-    color: $font-color !important;
+    color: $red2 !important;
 }
 
 h3{
@@ -57,6 +56,40 @@ button:hover{
 }
 button:focus{
     outline: none;
+}
+blockquote{
+    padding: 0.25rem 1.5rem;
+    box-sizing: border-box;
+    position: relative;
+    border: 1px solid $border-grey;
+    border-left: 0.5rem solid $red2;
+    border-bottom: 1px solid $border-grey2;
+    border-bottom-right-radius: 0.5rem;
+}
+blockquote::before{
+    content: "\201C";
+    font-family: Georgia, serif;
+    font-size: 2rem ;
+    font-weight: bold;
+    color: $font-title;
+    position: absolute;
+    left: 0.25rem;
+    top: 0.25rem;
+}
+table{
+    //border: 1px solid $border-grey2;
+    box-sizing:  border-box;
+}
+table > thead > tr >th {
+    border: 1px solid $border-grey;
+    box-sizing: border-box;
+    color: $red2;
+    padding: 0.5rem 0.5rem;
+}
+table > tbody > tr > td {
+    border: 1px solid $border-grey;
+    box-sizing: border-box;
+    padding: 0.5rem 0.5rem;
 }
 div.tooltip{
     min-width: 20px;

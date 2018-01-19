@@ -5,12 +5,12 @@
 
 <h3>d3-chart.component.html</h3>
 <pre class="language-markup">
-<code class="language-markup">&lt;div #chart1 class = "drawChart"&gt; &lt;/div&gt;
+<code class="language-markup" highlightCode >&lt;div #chart1 class = "drawChart"&gt; &lt;/div&gt;
 </code></pre>
 
 <h3>d3-chart.component.ts</h3>
 <pre class="language-typescript">
-<code class="language-typescript">import &#123; Component, OnInit, ViewChild, ElementRef &#125; from '@angular/core';
+<code class="language-typescript" highlightCode >import &#123; Component, OnInit, ViewChild, ElementRef &#125; from '@angular/core';
 import * as d3 from 'd3';
 
     @ViewChild('chart1') private chartContainer1:ElementRef;
@@ -90,7 +90,7 @@ import * as d3 from 'd3';
 
 <h3>d3-chart.component.scss</h3>
 <pre class="language-scss">
-<code class="language-scss">.svg-container&#123;
+<code class="language-scss" highlightCode>.svg-container&#123;
     display: inline-block;
     position: relative;
     width: 100%;
@@ -107,7 +107,7 @@ import * as d3 from 'd3';
 </code></pre>
 
 <h3>d3-chart.component.ts</h3>
-<pre><code class="language-typescript">this.svg2 = d3.select(element)
+<pre><code class="language-typescript" highlightCode >this.svg2 = d3.select(element)
     .append('div')
     .classed('svg-container',true)
     .append('svg')
@@ -121,11 +121,11 @@ import * as d3 from 'd3';
 <h2>3. dynamic update chart with transition effect when data changes</h2>
 
 <h3>d3-chart.component.html</h3>
-<pre><code class="language-markup">&lt;button type="button" (click)="updateData()"&gt;Refresh&lt;/button&gt;
+<pre><code class="language-markup" highlightCode >&lt;button type="button" (click)="updateData()"&gt;Refresh&lt;/button&gt;
 </code></pre>
 
 <h3>d3-chart.component.ts</h3>
-<pre><code  class="language-typescript">refresh: boolean = false;
+<pre><code  class="language-typescript" highlightCode >refresh: boolean = false;
 updateData()&#123;
 	let data2 = [
 	[10,50],
@@ -181,7 +181,7 @@ when you click the button, you can see the transition effect with data changes.
 <h2>4. add text and tooltip for chart</h2>
 
 <h3>d3-chart.component.scss</h3>
-<pre><code class="language-scss">div.tooltip&#123;
+<pre><code class="language-scss" highlightCode >div.tooltip&#123;
     min-width: 20px;
     position: absolute;
     padding: 2px 8px;
@@ -208,7 +208,7 @@ div.tooltip::after&#123;
 &#125;
 </code></pre>
 <h3>d3-chart.component.ts</h3>
-<pre><code class="language-typescript">drawChart4(data)&#123;
+<pre><code class="language-typescript" highlightCode>drawChart4(data)&#123;
 	let barWidth = 50;
 	this.xAxis4.transition().call(d3.axisBottom(this.xScale));
 	this.yAxis4.transition().call(d3.axisLeft(this.yScale));

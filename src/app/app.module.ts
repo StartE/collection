@@ -17,6 +17,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { ArticleComponent } from './shared/article/article.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import {CodeHighlighterModule} from './shared/codeHighlighter/codeHighlighter';
 
 import { DashboardComponent } from './web-dev/dashboard/dashboard.component';
 import { D3ChartComponent } from './web-dev/d3-chart/d3-chart.component';
@@ -56,6 +57,7 @@ import { GetSrcService } from './services/get-src.service';
     HttpModule,
     AppRoutingModule,
     MarkdownModule.forRoot(),
+    CodeHighlighterModule,
   ],
   providers: [
       GetSrcService

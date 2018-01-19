@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
 import { GetSrcService } from './../../services/get-src.service';
 
 import * as d3 from 'd3';
@@ -7,7 +7,7 @@ import * as d3 from 'd3';
   templateUrl: './d3-chart.component.html',
   styleUrls: ['./d3-chart.component.scss']
 })
-export class D3ChartComponent implements OnInit {
+export class D3ChartComponent implements OnInit,AfterViewInit {
 
     @ViewChild('chart1') private chartContainer1:ElementRef;
     @ViewChild('chart2') private chartContainer2:ElementRef;
@@ -60,6 +60,9 @@ export class D3ChartComponent implements OnInit {
         this.drawChart2(this.data);
         this.drawChart3(this.data);
         this.drawChart4(this.data);
+    }
+    ngAfterViewInit(){
+        
     }
     
     initChart(){
