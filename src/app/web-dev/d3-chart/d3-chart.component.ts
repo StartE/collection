@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy, AfterViewInit} from '@angular/core';
 import { GetSrcService } from './../../services/get-src.service';
 
 import * as d3 from 'd3';
@@ -7,7 +7,7 @@ import * as d3 from 'd3';
   templateUrl: './d3-chart.component.html',
   styleUrls: ['./d3-chart.component.scss']
 })
-export class D3ChartComponent implements OnInit,AfterViewInit {
+export class D3ChartComponent implements OnInit,AfterViewInit,OnDestroy {
 
     @ViewChild('chart1') private chartContainer1:ElementRef;
     @ViewChild('chart2') private chartContainer2:ElementRef;
@@ -249,5 +249,8 @@ export class D3ChartComponent implements OnInit,AfterViewInit {
             .attr('text-anchor','middle')
             .style('fill','#444')
             .text(d => d[1]);
+    }
+    ngOnDestroy(){
+        d3.select('.tooltip').remove();
     }
 }
