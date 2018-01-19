@@ -10,7 +10,6 @@ export class PageNotFoundComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-      console.log('page-not-fond')
   }
 
 }

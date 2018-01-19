@@ -51,5 +51,9 @@ export class LifelogComponent implements OnInit {
     onSelect(article){
         this.selectedArticle = article;
     }
+    gotoGithub(){
+        window.open('https://github.com/StartE')
+    }
+
 
 }

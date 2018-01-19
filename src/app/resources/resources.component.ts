@@ -51,6 +51,9 @@ export class ResourcesComponent implements OnInit,OnDestroy {
     onSelect(article){
         this.selectedArticle = article;
     }
+    gotoGithub(){
+        window.open('https://github.com/StartE')
+    }
 
 
 }
