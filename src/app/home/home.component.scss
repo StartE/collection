@@ -24,7 +24,7 @@ $imge-size:5rem;
 }
 .page-intro{
     justify-content: center;
-    color: $font-grey;
+    color: $font-title;
     font-weight: 450;
     padding: 0rem 0 1rem 0;
 }
@@ -46,11 +46,11 @@ $imge-size:5rem;
     text-align: center;
     outline: none;
     font-style: italic;
-    color: $font-grey;
+    color: $blue-light-grey;
     cursor: pointer;
 }
 .link-item:hover{
     color: $red2;
-    font-weight: 450;
+    font-weight: 550;
     transition: color 0.2s ease;
 }
