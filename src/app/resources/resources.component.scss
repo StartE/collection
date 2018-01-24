@@ -13,10 +13,9 @@ $header-height:55px;
     margin-left:10%;
     margin-right: 10%;
     margin-top: 2rem;
-    margin-bottom: 2rem;
 }
 .article-list{
-    margin:2rem 0.5rem 2rem 0;
+    margin:2rem 0.5rem 1rem 0;
 }
 $list-padding-left:1rem;
 $list-padding-top:0.5rem;
@@ -75,4 +74,9 @@ $circle:0.5rem;
     float: left;
     color: $font-color;
 
+}
+.tag-list{
+    margin-left:10%;
+    margin-right: 10%;
+    margin-top: -1rem;
 }

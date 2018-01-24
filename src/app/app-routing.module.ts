@@ -17,7 +17,8 @@ import { PythonComponent } from './data-science/python/python.component';
 import { AlgorithmComponent } from './data-science/algorithm/algorithm.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent},
+  { path: '',component: HomeComponent},
+  { path:'home', redirectTo: '' },
   { path:'web', component: WebDevComponent,
     children: [
       {
@@ -56,26 +57,14 @@ const routes: Routes = [
   },
   {
     path:'resources',component:ResourcesComponent,
-    children: [
-        {
-            path: 'article/:id',
-            component: ArticleComponent,
-        }
-    ]
   },
   {
       path:'lifelog',component:LifelogComponent,
-      children: [
-        {
-            path: 'article/:id',
-            component: ArticleComponent,
-        }
-      ]
   },
   {
     path:'page-not-found',component:PageNotFoundComponent
   },
-  { path: '**', redirectTo: '/home' },
+  { path: '**', redirectTo: 'page-not-found' },
 ];
 
 

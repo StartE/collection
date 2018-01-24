@@ -1,5 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { Router,ActivatedRoute, ParamMap } from '@angular/router';
+import { Component, Input, OnInit,OnChanges, OnDestroy } from '@angular/core';
 import { GetSrcService } from './../../services/get-src.service';
 
 @Component({
@@ -7,33 +6,29 @@ import { GetSrcService } from './../../services/get-src.service';
     templateUrl: './article.component.html',
     styleUrls: ['./article.component.scss']
 })
-export class ArticleComponent implements OnInit,OnDestroy  {
+export class ArticleComponent implements OnInit,OnChanges,OnDestroy  {
 
-    sub:any;
-    articleId:number;
-    MAX_SIZE_OF_ARTICLES:number = 7;
     mdPath:string = '';
-    constructor(private router:Router,private activatedRoute: ActivatedRoute, private getSrcService:GetSrcService ) { }
+    tags:any[] = [];
+    @Input() article:any;
+    constructor() { }
     ngOnInit() {
-        this.sub = this.activatedRoute.params.subscribe(params =>{
-            
-            if(params['id'] != undefined){
-                this.articleId = parseInt(params['id']);
-                if(this.articleId <= this.MAX_SIZE_OF_ARTICLES && this.articleId > 0){
-                    this.getSrc();
-                }
-                else if(this.articleId > this.MAX_SIZE_OF_ARTICLES){
-                    this.router.navigate(['/page-not-found']);
-                    return;
-                }
-            }
-        })
+        
+    }
+    ngOnChanges(){
+        if(this.article != undefined && this.article != null){
+            this.getSrc();
+            this.getTags();
+        }
     }
     getSrc(){
-        this.mdPath = './../../../assets/file/'+this.articleId+'.md';
+        this.mdPath = './../../../assets/file/'+this.article.src;
+    }
+    getTags(){
+        this.tags = this.article.tags;
     }
     ngOnDestroy() {
-        this.sub.unsubscribe();
+        
     }
 
 }

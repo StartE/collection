@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs/Subscription';
@@ -9,17 +9,17 @@ import { GetSrcService } from './../services/get-src.service';
   templateUrl: './lifelog.component.html',
   styleUrls: ['./lifelog.component.scss']
 })
-export class LifelogComponent implements OnInit {
+export class LifelogComponent implements OnInit,OnDestroy {
 
     articles:any[] = [];
+    tags:any[] = [];
+    currentTages:any[] = [];
     selectedArticle:any = null;
     static lifelogType:number = 2;
     subscribe:Subscription;
-    constructor(private router:Router,private getSrcService:GetSrcService) { }
-
+    constructor(private getSrcService:GetSrcService) { }
     ngOnInit() {
-        this.getArticleList();
-        
+        this.getArticleList();    
     }
     ngOnDestroy(){
         this.cancelRequest();
@@ -27,7 +27,7 @@ export class LifelogComponent implements OnInit {
     setDefault(){
         if(this.articles.length >0){
             this.selectedArticle = this.articles[0];
-            this.router.navigate(['/lifelog/article/'+this.articles[0].id]);
+            this.getTags();
         }
     }
     cancelRequest(){
@@ -41,6 +41,7 @@ export class LifelogComponent implements OnInit {
         this.subscribe = this.getSrcService.getSource('./../../assets/file/article-list.json').subscribe(
             res =>{
                 this.articles = JSON.parse(res).articleList.filter( d => d.type == LifelogComponent.lifelogType );
+                this.tags = JSON.parse(res).tags;
                 this.setDefault();
             },
             error =>{
@@ -50,9 +51,17 @@ export class LifelogComponent implements OnInit {
     }
     onSelect(article){
         this.selectedArticle = article;
+        this.getTags();
     }
     gotoGithub(){
         window.open('https://github.com/StartE')
+    }
+    getTags(){
+        this.currentTages = [];
+        for(let i = 0; i<this.selectedArticle.tags.length; i++){
+            let id = this.selectedArticle.tags[i];
+            this.currentTages.push(this.tags[id]);
+        }
     }
 
 

@@ -9,16 +9,12 @@ import { GetSrcService } from './../../services/get-src.service';
 export class ChartJsComponent implements OnInit {
 
   constructor( private getSrcService:GetSrcService) { }
-  src = './../../../assets/file/test.ts';
-  someCode:string = '';
-  ngOnInit() {
-      this.getSrcService.getSource(this.src).subscribe(
-          res =>{
-            this.someCode = res;
-          },
-          error =>{
-            console.log(error)
-          });
+  a= [
+      {id:1,name:'222'},
+      {id:2,name:'444'}
+  ]
+  ngOnInit(){
+
   }
 
 }

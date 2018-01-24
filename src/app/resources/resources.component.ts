@@ -12,14 +12,15 @@ import { Subscription } from 'rxjs/Subscription';
 export class ResourcesComponent implements OnInit,OnDestroy {
 
     articles:any[] = [];
+    tags:any[] = [];
     selectedArticle:any = null;
+    currentTages:any[] = [];
     static resourcesType:number = 1;
     subscribe:Subscription;
-    constructor(private router:Router,private getSrcService:GetSrcService) { }
+    constructor(private getSrcService:GetSrcService) { }
 
     ngOnInit() {
-        this.getArticleList();
-        
+        this.getArticleList();    
     }
     ngOnDestroy(){
         this.cancelRequest();
@@ -27,7 +28,7 @@ export class ResourcesComponent implements OnInit,OnDestroy {
     setDefault(){
         if(this.articles.length >0){
             this.selectedArticle = this.articles[0];
-            this.router.navigate(['/resources/article/'+this.articles[0].id]);
+            this.getTags();
         }
     }
     cancelRequest(){
@@ -41,6 +42,7 @@ export class ResourcesComponent implements OnInit,OnDestroy {
         this.subscribe = this.getSrcService.getSource('./../../assets/file/article-list.json').subscribe(
             res =>{
                 this.articles = JSON.parse(res).articleList.filter( d => d.type == ResourcesComponent.resourcesType );
+                this.tags = JSON.parse(res).tags;
                 this.setDefault();
             },
             error =>{
@@ -50,10 +52,17 @@ export class ResourcesComponent implements OnInit,OnDestroy {
     }
     onSelect(article){
         this.selectedArticle = article;
+        this.getTags();
     }
     gotoGithub(){
         window.open('https://github.com/StartE')
     }
-
+    getTags(){
+        this.currentTages = [];
+        for(let i = 0; i<this.selectedArticle.tags.length; i++){
+            let id = this.selectedArticle.tags[i];
+            this.currentTages.push(this.tags[id]);
+        }
+    }
 
 }

@@ -10,14 +10,16 @@
 <div class="row no-gutters">
     <div class="col-9">
         <div class="article-content">
-            <router-outlet></router-outlet>
+            <app-article [article] = "selectedArticle"></app-article>
+        </div>
+        <div class="tag-list">
+            <app-tags [currentTages] = "currentTages"></app-tags>
         </div>
     </div>
     <div class="col-3">
         <div class="article-list">
             <div *ngFor ="let article of articles" class="list-item"(click)= "onSelect(article)"
-            [ngClass]="{'selected':selectedArticle == article}"
-            [routerLink] = "['/resources/article',article.id]"><span >{{article.name}}-------</span></div>
+            [ngClass]="{'selected':selectedArticle == article}"><span>{{article.name}}-------</span>
         </div>
     </div>
 </div>
