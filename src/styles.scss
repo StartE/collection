@@ -84,15 +84,16 @@ blockquote::before{
 table{
     //border: 1px solid $border-grey2;
     box-sizing:  border-box;
+    margin: 1rem 1rem;
 }
 table > thead > tr >th {
-    border: 1px solid $border-grey;
+    border: 2px solid $border-grey;
     box-sizing: border-box;
     color: $red2;
     padding: 0.5rem 0.5rem;
 }
 table > tbody > tr > td {
-    border: 1px solid $border-grey;
+    border: 2px solid $border-grey;
     box-sizing: border-box;
     padding: 0.5rem 0.5rem;
 }
