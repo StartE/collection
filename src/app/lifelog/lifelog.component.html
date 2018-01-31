@@ -10,7 +10,7 @@
 <div class="row no-gutters">
     <div class="col-9">
         <div class="article-content">
-            <app-article [article] = "selectedArticle"></app-article>
+            <router-outlet></router-outlet>
         </div>
         <div class="tag-list">
             <app-tags [currentTages] = "currentTages"></app-tags>
@@ -18,8 +18,9 @@
     </div>
     <div class="col-3">
         <div class="article-list">
-            <div *ngFor ="let article of articles" class="list-item"(click)= "onSelect(article)"
-            [ngClass]="{'selected':selectedArticle == article}"><span >{{article.name}}-------</span></div>
+            <div *ngFor ="let article of articles" class="list-item"(click)= "onSelect(article)" [routerLink]="['article',article.src]"
+            [routerLinkActive]="['selected']"><span>{{article.name}}-------</span>
+            </div>
         </div>
     </div>
 </div>

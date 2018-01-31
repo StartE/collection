@@ -19,6 +19,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { ArticleComponent } from './shared/article/article.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { CodeHighlighterModule } from './shared/codeHighlighter/codeHighlighter';
+import { SubHomeComponent } from './shared/sub-home/sub-home.component';
 import { TagsComponent } from './shared/tags/tags.component';
 
 import { DashboardComponent } from './web-dev/dashboard/dashboard.component';
@@ -52,6 +53,7 @@ import { GetSrcService } from './services/get-src.service';
     PythonComponent,
     AlgorithmComponent,
     ChartJsComponent,
+    SubHomeComponent,
 
   ],
   imports: [

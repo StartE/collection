@@ -1,12 +1,12 @@
 {
     "articleList":[
-        {"id":0,"name":"Git 命令学习","type":1,"tags":[0,1],"src":"1.md"},
-        {"id":1,"name":"Icon 资源整理","type":1,"tags":[1],"src":"2.md"},
-        {"id":2,"name":"RxJS","type":1,"tags":[1,2],"src":"3.md"},
-        {"id":3,"name":"ES6 值得了解的几点","type":1,"tags":[0],"src":"4.md"},
-        {"id":4,"name":"旅行青蛙 佛系养哇游戏","type":2,"tags":[0,2],"src":"5.md"},
-        {"id":5,"name":"手账 贵在哪里?","type":2,"tags":[1],"src":"6.md"},
-        {"id":6,"name":"袋内带外 春雪","type":2,"tags":[2],"src":"7.md"}
+        {"id":0,"name":"Git 命令学习","type":1,"tags":[0,1],"src":"1"},
+        {"id":1,"name":"Icon 资源整理","type":1,"tags":[1],"src":"2"},
+        {"id":2,"name":"RxJS","type":1,"tags":[1,2],"src":"3"},
+        {"id":3,"name":"ES6 值得了解的几点","type":1,"tags":[0],"src":"4"},
+        {"id":4,"name":"旅行青蛙 佛系养哇游戏","type":2,"tags":[0,2],"src":"5"},
+        {"id":5,"name":"手账 贵在哪里?","type":2,"tags":[1],"src":"6"},
+        {"id":6,"name":"袋内带外 春雪","type":2,"tags":[2],"src":"7"}
     ],
     "tags":[
         {"id":0,"name":"web"},

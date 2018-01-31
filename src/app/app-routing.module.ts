@@ -7,6 +7,7 @@ import { DataScienceComponent } from './data-science/data-science.component';
 import { LifelogComponent } from './lifelog/lifelog.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { ArticleComponent } from './shared/article/article.component';
+import { SubHomeComponent } from './shared/sub-home/sub-home.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 
 import { DashboardComponent } from './web-dev/dashboard/dashboard.component';
@@ -57,9 +58,17 @@ const routes: Routes = [
   },
   {
     path:'resources',component:ResourcesComponent,
+    children:[
+        {path:'',component: SubHomeComponent},
+        {path:'article/:src/:id',component: ArticleComponent}
+    ]
   },
   {
-      path:'lifelog',component:LifelogComponent,
+    path:'lifelog',component:LifelogComponent,
+    children:[
+        {path:'',component: SubHomeComponent},
+        {path:'article/:src/:id',component: ArticleComponent}
+    ]
   },
   {
     path:'page-not-found',component:PageNotFoundComponent
