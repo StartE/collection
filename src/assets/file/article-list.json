@@ -6,7 +6,8 @@
         {"id":3,"name":"ES6 值得了解的几点","type":1,"tags":[0],"src":"4"},
         {"id":4,"name":"旅行青蛙 佛系养哇游戏","type":2,"tags":[0,2],"src":"5"},
         {"id":5,"name":"手账 贵在哪里?","type":2,"tags":[1],"src":"6"},
-        {"id":6,"name":"袋内带外 春雪","type":2,"tags":[2],"src":"7"}
+        {"id":6,"name":"袋内带外 春雪","type":2,"tags":[2],"src":"7"},
+        {"id":7,"name":"RxJS-操作符","type":1,"tags":[2],"src":"8"}
     ],
     "tags":[
         {"id":0,"name":"web"},
