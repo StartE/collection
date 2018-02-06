@@ -21,6 +21,7 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
 import { CodeHighlighterModule } from './shared/codeHighlighter/codeHighlighter';
 import { SubHomeComponent } from './shared/sub-home/sub-home.component';
 import { TagsComponent } from './shared/tags/tags.component';
+import { GadgetComponent } from './shared/gadget/gadget.component';
 
 import { DashboardComponent } from './web-dev/dashboard/dashboard.component';
 import { D3ChartComponent } from './web-dev/d3-chart/d3-chart.component';
@@ -40,8 +41,9 @@ import { GetSrcService } from './services/get-src.service';
     DataScienceComponent,
     LifelogComponent,
     ResourcesComponent,
+    
     TagsComponent,
-
+    GadgetComponent,
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
