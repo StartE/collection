@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostListener, ViewContainerRef} from '@angular/core';
+import { Component, OnInit, Input, Output, HostListener, ViewContainerRef,EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-gadget',
@@ -6,15 +6,18 @@ import { Component, OnInit, Input, HostListener, ViewContainerRef} from '@angula
   styleUrls: ['./gadget.component.scss'],
   host:{
       '(dragstart)':`onDragStart($event)`,
-      '(dragover)':'onDragOver($event)',
       '(dragenter)':'onDragEnter($event)',
-      '(drop)':'onDrop($event)'
+      '(dragover)':'onDragOver($event)',
+      '(drop)':'onDrop($event)',
   }
 })
 export class GadgetComponent implements OnInit {
 
     @Input() id:number;
-    @Input() width:any;
+    @Input() name:string;
+    @Input() data:any;
+    @Output() onDragStartGadget:EventEmitter<number> = new EventEmitter<number>();
+    @Output() onDragOverGadget:EventEmitter<number> = new EventEmitter<number>();
 
     constructor() { }
 
@@ -23,26 +26,13 @@ export class GadgetComponent implements OnInit {
 
     @HostListener('dragstart',['$event'])
     onDragStart(event: DragEvent){
-        console.log(event)
-        event.preventDefault();
+        this.onDragStartGadget.emit(this.id);
     }
 
     @HostListener('dragover',['$event'])
     onDragOver(event: DragEvent){
-        console.log(event)
         event.preventDefault();
-    }
-
-    @HostListener('dragenter',['$event'])
-    onDragEnter(event: DragEvent){
-        console.log(event)
-        event.preventDefault();
-    }
-
-    @HostListener('drop',['$event'])
-    onDrop(event: DragEvent){
-        console.log(event)
-        event.preventDefault();
+        this.onDragOverGadget.emit(this.id);
     }
 
 }

@@ -22,6 +22,9 @@ import { CodeHighlighterModule } from './shared/codeHighlighter/codeHighlighter'
 import { SubHomeComponent } from './shared/sub-home/sub-home.component';
 import { TagsComponent } from './shared/tags/tags.component';
 import { GadgetComponent } from './shared/gadget/gadget.component';
+import { GadgetOneComponent } from './shared/gadget/gadget-one/gadget-one.component';
+import { GadgetTwoComponent } from './shared/gadget/gadget-two/gadget-two.component';
+import { GadgetContainerComponent } from './shared/gadget/gadget-container/gadget-container.component';
 
 import { DashboardComponent } from './web-dev/dashboard/dashboard.component';
 import { D3ChartComponent } from './web-dev/d3-chart/d3-chart.component';
@@ -31,6 +34,9 @@ import { AlgorithmComponent } from './data-science/algorithm/algorithm.component
 import { ChartJsComponent } from './web-dev/chart-js/chart-js.component';
 
 import { GetSrcService } from './services/get-src.service';
+import { GadgetMessageService } from './services/gadget-message.service';
+
+import { AddGadgetDirective } from './shared/add-gadget/add-gadget.directive';
 
 @NgModule({
   declarations: [
@@ -42,14 +48,6 @@ import { GetSrcService } from './services/get-src.service';
     LifelogComponent,
     ResourcesComponent,
     
-    TagsComponent,
-    GadgetComponent,
-    HeaderComponent,
-    FooterComponent,
-    SidebarComponent,
-    ArticleComponent,
-    PageNotFoundComponent,
-
     DashboardComponent,
     D3ChartComponent,
     PythonComponent,
@@ -57,6 +55,25 @@ import { GetSrcService } from './services/get-src.service';
     ChartJsComponent,
     SubHomeComponent,
 
+    /** shared component */
+    TagsComponent,
+    GadgetComponent,
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent,
+    ArticleComponent,
+    PageNotFoundComponent,
+    GadgetOneComponent,
+    GadgetTwoComponent,
+    GadgetContainerComponent,
+
+    /** directives */
+    AddGadgetDirective,
+
+  ],
+  entryComponents:[
+    GadgetOneComponent,
+    GadgetTwoComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +85,8 @@ import { GetSrcService } from './services/get-src.service';
     CodeHighlighterModule,
   ],
   providers: [
-      GetSrcService
+      GetSrcService,
+      GadgetMessageService
   ],
   bootstrap: [AppComponent]
 })

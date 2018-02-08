@@ -1,0 +1,10 @@
+<div class="gadget-container" draggable ="true" [ngClass]="{'gadgetOne':widthType == 'one','gadgetTwo':widthType == 'two'}" (mouseover)="showToolBar = true" (mouseleave)="showToolBar = false">
+    <div class="gadget-content">
+        <div class="row no-gutters gadget-title">
+            <div *ngIf = "showToolBar" class="right-close" (click)="closeGadget()"><span class="fa fa-close"></span></div>
+        </div>
+        <div class="row no-gutters">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

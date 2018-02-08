@@ -1,0 +1,29 @@
+@import "./../../../../assets/style/variable.scss";
+
+.gadget-container{
+    float: left;
+    padding: 0.5rem;
+    height: 200px;
+}
+.gadget-title{
+    color: white;
+    background: $red2;
+    width: 100%;
+}
+.gadgetTwo{
+    width: 40%;
+}
+.gadgetOne{
+    width: 60%;
+}
+.right-close{
+    margin-right: 0.5rem;
+    cursor: pointer;
+    float: right;
+}
+.gadget-content{
+    box-sizing: border-box;
+    border: 1px solid $border-grey2;
+    width: 100%;
+    height: 100%;
+}
