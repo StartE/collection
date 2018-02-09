@@ -13,6 +13,7 @@ export class GadgetContainerComponent implements OnInit {
     ngOnInit() {
     }
 
+    @Input() style:any;
     @Input() widthType:any;
     @Input() id:number;
     showToolbar:boolean = false;

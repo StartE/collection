@@ -24,6 +24,7 @@ import { TagsComponent } from './shared/tags/tags.component';
 import { GadgetComponent } from './shared/gadget/gadget.component';
 import { GadgetOneComponent } from './shared/gadget/gadget-one/gadget-one.component';
 import { GadgetTwoComponent } from './shared/gadget/gadget-two/gadget-two.component';
+import { GadgetThreeComponent } from './shared/gadget/gadget-three/gadget-three.component';
 import { GadgetContainerComponent } from './shared/gadget/gadget-container/gadget-container.component';
 
 import { DashboardComponent } from './web-dev/dashboard/dashboard.component';
@@ -65,15 +66,16 @@ import { AddGadgetDirective } from './shared/add-gadget/add-gadget.directive';
     PageNotFoundComponent,
     GadgetOneComponent,
     GadgetTwoComponent,
+    GadgetThreeComponent,
     GadgetContainerComponent,
 
     /** directives */
     AddGadgetDirective,
-
   ],
   entryComponents:[
     GadgetOneComponent,
     GadgetTwoComponent,
+    GadgetThreeComponent,
   ],
   imports: [
     BrowserModule,

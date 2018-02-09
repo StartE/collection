@@ -3,6 +3,7 @@ import { AddGadgetDirective } from './../../shared/add-gadget/add-gadget.directi
 import { GadgetComponent } from './../../shared/gadget/gadget.component';
 import { GadgetOneComponent } from './../../shared/gadget/gadget-one/gadget-one.component';
 import { GadgetTwoComponent } from './../../shared/gadget/gadget-two/gadget-two.component';
+import { GadgetThreeComponent } from './../../shared/gadget/gadget-three/gadget-three.component';
 import { GadgetMessageService } from './../../services/gadget-message.service';
 import { Subscription } from 'rxjs/Subscription';
 @Component({
@@ -18,11 +19,13 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy{
     subsription:any;
     interval:any;
     placeholder:ComponentRef<any>;
-    gadgetIndexMap:Map<number,ViewRef> = new Map<number,ViewRef>();
+    gadgetViewIndexMap:Map<number,ViewRef> = new Map<number,ViewRef>();
+    gadgetComponentIndexMap:Map<number,ComponentRef<any>> = new Map<number,ComponentRef<any>>();
+
     currentMoverId:number;
     currentOverId:number;
     closeGadgetSubscription:Subscription;
-
+    gadgetIndexList:any[] = [];
     constructor(private componentFactoryResolver:ComponentFactoryResolver,private gadgetMessageService:GadgetMessageService ) {
         this.closeGadgetSubscription = this.gadgetMessageService.closeGadgetSource$.subscribe(
             id =>{
@@ -35,15 +38,19 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy{
 
     ngOnInit() {
         this.gadgets = [
-            {id: 1,name:"gadget-one",data:"hhhh-one",component:GadgetOneComponent},
-            {id: 2,name:"gadget-two",data:"hhhh-two",component:GadgetTwoComponent},
-            {id: 3,name:"gadget-3",data:"hhhh-3",component:GadgetOneComponent},
-            {id: 4,name:"gadget-4",data:"hhhh-4",component:GadgetTwoComponent},
-            {id: 5,name:"gadget-5",data:"hhhh-5",component:GadgetTwoComponent},
-            {id: 6,name:"gadget-6",data:"hhhh-6",component:GadgetOneComponent},
+            {id: 1,name:"gadget-one",data:{style:'gadgetOne'},component:GadgetOneComponent},
+            {id: 2,name:"gadget-two",data:{style:'gadgetTwo'},component:GadgetTwoComponent},
+            {id: 3,name:"gadget-3",data:{style:'gadgetOne'},component:GadgetOneComponent},
+            {id: 4,name:"gadget-4",data:{style:'gadgetTwo'},component:GadgetTwoComponent},
+            {id: 5,name:"gadget-5",data:{style:'gadgetTwo'},component:GadgetTwoComponent},
+            {id: 6,name:"gadget-6",data:{style:'gadgetOne'},component:GadgetOneComponent},
+            {id: 7,name:"gadget-7",data:{style:'gadgetThree'},component:GadgetThreeComponent},
+            {id: 8,name:"gadget-8",data:{style:'gadgetThree'},component:GadgetThreeComponent},
+
         ];
 
         this.loadComponent();
+        this.logGadgetIndex();
     }
 
 
@@ -70,13 +77,20 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy{
                 val => {
                 this.currentOverId = val;
             });
-            this.gadgetIndexMap.set(gadgetItem.id,componentRef.hostView);
+
+            this.gadgetViewIndexMap.set(gadgetItem.id,componentRef.hostView);
+            this.gadgetComponentIndexMap.set(gadgetItem.id,componentRef);
+
+            let location = componentRef.location.nativeElement.clientWidth;
+            console.log(gadgetItem.id,location);
         });
     }
     closeGadget(id:number){
         let viewContainerRef = this.gadgetContainer.viewContainerRef;
-        let index = viewContainerRef.indexOf(this.gadgetIndexMap.get(id))
+        let index = viewContainerRef.indexOf(this.gadgetViewIndexMap.get(id))
         viewContainerRef.remove(index);
+        this.logGadgetIndex();
+
     }
     
     @HostListener('dragover',['$event'])
@@ -94,14 +108,40 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy{
     }
     doDrop(x,y,id,overId){
         let viewContainerRef = this.gadgetContainer.viewContainerRef;
-        let sourceView = this.gadgetIndexMap.get(id);
-        let targetId = viewContainerRef.indexOf(this.gadgetIndexMap.get(overId));console.log(targetId,'target')
+        let sourceView = this.gadgetViewIndexMap.get(id);
+        this.getNearestViewRef(x,y)
+        let targetId = viewContainerRef.indexOf(this.gadgetViewIndexMap.get(overId));console.log(targetId,'target')
         if(targetId < this.gadgets.length -1){
             viewContainerRef.move(sourceView,targetId);
         }else{
             //do nothing
         }
+        this.logGadgetIndex();
+
     }
-    
+    logGadgetIndex(){
+        this.gadgetIndexList = [];
+        let viewContainerRef = this.gadgetContainer.viewContainerRef;
+        this.gadgets.forEach(g => {
+            let id = g.id;
+            let index = viewContainerRef.indexOf(this.gadgetViewIndexMap.get(id));
+            if(index != -1){
+                this.gadgetIndexList.push({id:id,index:index});
+            }
+        });
+    }
+    getNearestViewRef(x,y){
+
+        let viewContainerRef = this.gadgetContainer.viewContainerRef;
+        let sourceLocation = this.gadgetComponentIndexMap.get(this.currentMoverId).location.nativeElement.getBoundingClientRect();
+        console.log(this.currentMoverId)
+        console.log(sourceLocation);
+        /** 
+        for(let i = 0; i< this.gadgetIndexList.length; i++){
+            let id = this.gadgetIndexList[i].id;
+            let view = this.gadgetComponentIndexMap.get(id).location.nativeElement.getBoundingClientRect();
+        }
+        */
+    }
 
 }
