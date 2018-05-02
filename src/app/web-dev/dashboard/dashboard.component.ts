@@ -133,6 +133,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy{
     getNearestViewRef(x,y){
 
         let viewContainerRef = this.gadgetContainer.viewContainerRef;
+        console.log(this.gadgetComponentIndexMap.get(this.currentMoverId).location)
         let sourceLocation = this.gadgetComponentIndexMap.get(this.currentMoverId).location.nativeElement.getBoundingClientRect();
         console.log(this.currentMoverId)
         console.log(sourceLocation);

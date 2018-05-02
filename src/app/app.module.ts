@@ -38,6 +38,7 @@ import { GetSrcService } from './services/get-src.service';
 import { GadgetMessageService } from './services/gadget-message.service';
 
 import { AddGadgetDirective } from './shared/add-gadget/add-gadget.directive';
+import { CodeTricksComponent } from './web-dev/code-tricks/code-tricks.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,8 @@ import { AddGadgetDirective } from './shared/add-gadget/add-gadget.directive';
 
     /** directives */
     AddGadgetDirective,
+
+    CodeTricksComponent,
   ],
   entryComponents:[
     GadgetOneComponent,

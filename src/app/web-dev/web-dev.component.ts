@@ -14,6 +14,9 @@ export class WebDevComponent implements OnInit {
         {name:'Chart',isChildren:false,open:false,url:null,children:[
           {name:'D3-Chart',isChildren:true,url:'/web/d3-chart'},
           {name:'Chart.js',isChildren:true,url:'/web/chart-js'}]
+        },
+        {name:'Code Tricks',isChildren:false,open:false,url:null,children:[
+            {name:'30 Seconds of CSS',isChildren:true,url:'/web/30s-of-css'},]
         }
     ]
     constructor() { }

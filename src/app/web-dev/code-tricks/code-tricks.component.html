@@ -1,0 +1,355 @@
+<h1>30s of CSS</h1>
+<p>主要参考 <a href="https://atomiks.github.io/30-seconds-of-css/#horizontal-and-vertical-centering">30 seconds of css</a> </p>
+<h2>1. Clearfix </h2>
+<pre><code class="language-markup" highlightCode>
+&lt;div class=""&gt;
+  &lt;div class="floated"&gt;float a&lt;/div&gt;
+  &lt;div class="floated"&gt;float b&lt;/div&gt;
+  &lt;div class="floated"&gt;float c&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;Test1 clearfix&lt;/div&gt;
+&lt;div class="clearfix"&gt;
+  &lt;div class="floated"&gt;float a&lt;/div&gt;
+  &lt;div class="floated"&gt;float b&lt;/div&gt;
+  &lt;div class="floated"&gt;float c&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;Test2 clearfix&lt;/div&gt;
+</code></pre>
+
+<pre><code class="language-css" highlightCode>
+.clearfix::after &#123;
+  content: "";
+  display: block;
+  clear: both;
+&#125;
+.floated &#123;
+  float: left;
+&#125;
+</code></pre>
+<div class="">
+    <div class="floated">float a</div>
+    <div class="floated">float b</div>
+    <div class="floated">float c</div>
+</div>
+<div>Test1 clearfix</div>
+<div class="clearfix">
+    <div class="floated">float a</div>
+    <div class="floated">float b</div>
+    <div class="floated">float c</div>
+</div>
+<div>Test2 clearfix</div>
+<p>可以看出，test1没有清除浮动，test2使用clearfix清除了float,这里把display默认的inline改为block，因为inline 不支持clear.
+</p>
+
+
+<h2>2. Constant width to height ratio 固定长宽比例</h2>
+<pre>
+<code class="language-markup" highlightCode>&lt;div class="constant-width-to-height-ratio"&gt;&lt;/div&gt;
+</code></pre>
+<div class="constant-width-to-height-ratio"></div>
+<pre><code class="language-css" highlightCode>
+.constant-width-to-height-ratio &#123;
+  background: #333;
+  width: 20%;
+  padding-top: 20%;
+&#125;
+</code></pre>
+<p>只要保持width 和padding-top的比例 等于div的长宽比就可以固定</p>
+
+
+<h2>3. Custom text selection 自定义文字选择样式</h2>
+<pre><code class="language-markup" highlightCode>
+&lt;p&gt;text with default; selection&lt;/p&gt;
+&lt;p class="custom-text-selection"&gt;text with customize selection&lt;/p&gt;
+</code></pre>
+<pre><code class="language-css" highlightCode>
+.custom-text-selection::selection &#123;
+  background: deeppink;
+  color: white;
+&#125;
+</code></pre>
+<p>text with default selection</p>
+<p class="custom-text-selection">text with customize selection</p>
+
+
+<h2>4. Disable Selection 不允许选中文字 </h2>
+<pre><code class="language-markup" highlightCode>
+&lt;p&gt;You can select me&lt;/p&gt;
+&lt;p class="unselectable"&gt;You can't select me!&lt;/p&gt;
+</code></pre>
+<pre><code class="language-css" highlightCode>
+.unselectable&#123;
+    user-select: none;
+&#125;
+</code></pre>
+<p>You can select me</p>
+<p class="unselectable">You can't select me!</p>
+
+
+<h2>5. Donut spinner 转圈圈效果</h2>
+<pre><code class="language-markup" highlightCode>
+&lt;div class="donut"&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css" highlightCode>
+@keyframes donut-spin&#123;
+    0%&#123; transform: rotate(0deg);&#125;
+    100%&#123; transform: rotate(360deg);&#125;
+&#125;
+.donut&#123;
+    display: inline-block;
+    border: 4px solid rgba(0,0,0,0.25);
+    border-left-color: blue;
+    border-radius: 50%; //transfer square to circle
+    width: 30px;
+    height: 30px;
+    animation: donut-spin 1.2s linear infinite;
+&#125;
+</code></pre>
+<div class="donut"></div>
+
+
+<h2>6. Easing variables 更强大的Ease设置</h2>
+<pre><code class="language-markup" highlightCode>
+&lt;div class="easing-variables"&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css" highlightCode>
+:root &#123;
+  --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  --ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  --ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+  --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+  --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+&#125;
+.easing-variables &#123;
+  width: 50px;
+  height: 50px;
+  background: #333;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1s var(--ease-out-quart);
+&#125;
+.easing-variables:hover &#123;
+  transform: rotate(45deg);
+&#125;
+</code></pre>
+<div class="easing-variables"><span>Hover</span></div>
+<p><code>cubic-bezier</code>又称三次贝塞尔，是控制<code>animation</code>生成速度曲线的函数， 规定是
+    <code>cubic-bezier(&lt;x1&gt;,&lt;y1&gt;,&lt;x2&gt;&lt;y2&gt;)</code>,其中起点是(0,0)终点是(1,1),(x1,y1)和(x2,y2)是途中 经过的两个点,这两个点拟合贝塞尔曲线
+</p>
+<p>参考： <a href="http://www.cnblogs.com/Mr-liyang/p/6762998.html">Ease linear ease-in ease-out ease-in-out的区别</a></p>
+<p>参考： <a href="https://www.jianshu.com/p/d999f090d333">贝塞尔曲线(cubic-bezier)</a></p>
+
+
+
+
+<h2>7. Etched text 嵌入式文字</h2>
+<p class="etched-text">I appear etched into the background.</p>
+<p><code>text-shadow: 0 5px white</code>创建一个和原位置相比水平偏移0px 垂直偏移2px的阴影，为了让阴影工作，背景颜色必须比阴影颜色深，文字颜色必须slightly faded,这样才有雕刻感</p>
+
+<h2>8. Gradient text渐变色文字</h2>
+<p class="gradient-text">Gradient text</p>
+<p> <code>webkit-background-clip: text</code> clips the background with the text, filling the text with the gradient background
+    as the color.</p>
+
+<h2>9.Hairline border 极细的边</h2>
+<div class="hairline-border">text</div>
+
+<h2>10. Horizontal and vertical centering 垂直水平居中</h2>
+<pre><code class="language-markup" highlightCode>
+&lt;div class="horizontal-and-vertical-centering"&gt;
+    &lt;div class="child"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css" highlightCode>
+.horizontal-and-vertical-centering&#123;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #333;
+    height: 80px;
+&#125;
+.child&#123;
+    background: #ee1;
+    height: 20px;
+    width: 30px;
+&#125;
+</code></pre>
+<div class="horizontal-and-vertical-centering">
+    <div class="child"></div>
+</div>
+
+
+
+<h2>11. Hover underline animation</h2>
+<pre><code class="language-markup" highlightCode>
+&lt;p class="hover-underline-animation"&gt;Hover this text to see the effect!&lt;/p&gt;
+</code></pre>
+<pre><code class="language-css" highlightCode>
+.hover-underline-animation&#123;
+    display: inline-block;
+    position: relative;
+    color: #0097ca;
+&#125;
+.hover-underline-animation::after&#123;
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left:0;
+    background-color: #0087ca;
+    transform-origin: bottom left;
+    transition: transform 0.25s ease-out;
+&#125;
+.hover-underline-animation:hover::after&#123;
+    transform: scaleX(1);
+&#125;
+</code></pre>
+<p class="hover-underline-animation">Hover this text to see the effect!</p>
+
+
+
+<h2>12. Mouse cursor gradient tracking 随着鼠标位置追踪梯度变化效果</h2>
+
+<h2>13. Overflow scroll gradient 溢出控制梯度变化效果</h2>
+<div class="overflow-scroll-gradient">
+    <div class="overflow-scroll-gradient__scroller">
+        kkkkkkkkkkkkk kkkkkkkkkkkkk kkkkkkkkkkkkk kkkkkkkkkkkkk kkkkkkkkkkkkk kkkkkkkkkkkkk kkkkkkkkkkkkk kkkkkkkkkkkkk kkkkkkkkkkkkk
+        kkkkkkkkkkkkk kkkkkkkkkkkkk kkkkkkkkkkkkk kkkkkkkkkkkkk kkkkkkkkkkkkk
+    </div>
+</div>
+
+
+<h2>14. popout menu弹出菜单</h2>
+<pre><code class="language-markup" highlightCode>
+&lt;div class="reference"&gt;
+    &lt;div class="popout-menu"&gt;
+        Popout menu
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<pre><code class="language-css" highlightCode>
+.reference &#123;
+  position: relative;
+  width: 200px;
+  height: 50px;
+  background: #333;
+&#125;
+.popout-menu &#123;
+  position: absolute;
+  visibility: hidden;
+  left: 100%;
+  width: 200px;
+  height: 40px;
+  background: red;
+&#125;
+.reference:hover > .popout-menu &#123;
+  visibility: visible;
+&#125;
+</code></pre>
+<div class="reference">
+    <div class="popout-menu">
+        Popout menu
+    </div>
+</div>
+
+
+
+<h2>15. Pretty text underline</h2>
+
+<h2>16. Shape separator</h2>
+
+<h2>17. System font stack 系统原生字体</h2>
+<pre class="language-css"><code>
+.system-font-stack &#123;
+  font-family: -apple-system,
+   BlinkMacSystemFont, 
+   "Segoe UI", 
+   Roboto, 
+   Oxygen-Sans,
+   Ubuntu,
+   Cantarell,
+   "Helvetica Neue",
+   Helvetica, Arial,
+   sans-serif;
+&#125;
+</code></pre>
+<pre>
+浏览器会在这些字体中查找第一个符合条件的。
+1. -apple-system 是San Francisco 用在iOS和macOS(非chrome浏览器上)
+2. BlinkMacSystemFont 是San Francisco,用在MacOS chrome
+3. "Segoe UI" 用于win10，“” 是因为有空格
+4. Roboto 用于安卓
+5. Oxygen-Sans 用于GNU+Linux
+6. Ubuntu用于Linux
+7."Helvetica Neue" 和"Helvetica" 用于macOS 10.10 及之下版本，“”是因为有空格
+8. Arial 是广泛支持所有系统的字体
+9. sans-serif 是sans-serif 字体的退路，如果所有其他字体都不支持的话
+</pre>
+
+<h2>18. Create a triangle shape with pure CSS 纯CSS创建三角形</h2>
+<pre><code class="language-markup" highlightCode>
+&lt;div class="triangle1"&gt;&lt;/div&gt;
+&lt;div class="triangle2"&gt;&lt;/div&gt;
+&lt;div class="triangle3"&gt;&lt;/div&gt;
+&lt;div class="triangle4"&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css" highlightCode>
+.triangle&#123;
+    width: 0;
+    height: 0;
+    border: 20px solid;
+&#125;
+.triangle1&#123;
+    @extend .triangle;
+    border-color: #333 transparent transparent transparent;
+&#125;
+.triangle2&#123;
+    @extend .triangle;
+    border-color: transparent #333 transparent transparent;
+&#125;
+.triangle3&#123;
+    @extend .triangle;
+    border-color:  transparent  transparent #333 transparent;
+&#125;
+.triangle4&#123;
+    @extend .triangle;
+    border-color: transparent transparent transparent #333;
+&#125;
+</code></pre>
+<div class="triangle1"></div>
+<div class="triangle2"></div>
+<div class="triangle3"></div>
+<div class="triangle4"></div>
+<p>上 右 下 左</p>
+
+<h2>19. Truncate text长文字省略号</h2>
+<pre><code class="language-markup" highlightCode>
+&lt;p&gt;If I exceed one line's width,I will be Truncated&lt;p&gt;
+&lt;p class="truncate-text"&gt;If I exceed one line's width,I will be Truncated&lt;p&gt;
+</code></pre>
+<pre><code class="language-css" highlightCode>
+.truncate-text&#123;
+    width: 185px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+&#125;
+</code></pre>
+<p>If I exceed one line's width,I will be Truncated<p>
+<p class="truncate-text">If I exceed one line's width,I will be Truncated<p>

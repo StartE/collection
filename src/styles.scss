@@ -126,3 +126,12 @@ div.tooltip::after{
     top:23px;
     left:20px;
 }
+
+circle.active {
+  stroke: #000;
+  stroke-width: 2px;
+}
+g.active{
+     stroke: #000;
+  stroke-width: 2px; 
+}

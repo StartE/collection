@@ -1,0 +1,209 @@
+.floated{
+    float: left;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.constant-width-to-height-ratio {
+  background: #333;
+  width: 20%;
+  padding-top: 20%;
+}
+
+.custom-text-selection::selection {
+  background: deeppink;
+  color: white;
+}
+
+.unselectable{
+    user-select: none;
+}
+
+@keyframes donut-spin{
+    0%{ transform: rotate(0deg);}
+    100%{ transform: rotate(360deg);}
+}
+.donut{
+    display: inline-block;
+    border: 4px solid rgba(0,0,0,0.25);
+    border-left-color: blue;
+    border-radius: 50%; //transfer square to circle
+    width: 30px;
+    height: 30px;
+    animation: donut-spin 1.2s linear infinite;
+}
+
+:root {
+  --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  --ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  --ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+  --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+  --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+.easing-variables {
+  width: 50px;
+  height: 50px;
+  background: #333;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1s var(--ease-out-quart);
+}
+.easing-variables:hover {
+  transform: rotate(45deg);
+}
+
+.etched-text{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #b8bec5;
+    background: #f5f6f9;
+    text-shadow: 0 2px white;
+}
+
+.gradient-text{
+    font-size: 2rem;
+    font-weight: bold;
+    background: -webkit-linear-gradient(green,yellow);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.hairline-border {
+  box-shadow: 0 0 0 1px;
+}
+@media (min-resolution: 2dppx) {
+  .hairline-border {
+    box-shadow: 0 0 0 0.5px;
+  }
+}
+@media (min-resolution: 3dppx) {
+  .hairline-border {
+    box-shadow: 0 0 0 0.33333333px;
+  }
+}
+@media (min-resolution: 4dppx) {
+  .hairline-border {
+    box-shadow: 0 0 0 0.25px;
+  }
+}
+
+.horizontal-and-vertical-centering{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #333;
+    height: 80px;
+}
+.child{
+    background: #ee1;
+    height: 20px;
+    width: 30px;
+}
+
+.hover-underline-animation{
+    display: inline-block;
+    position: relative;
+    color: #0097ca;
+}
+.hover-underline-animation::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left:0;
+    background-color: #0087ca;
+    transform-origin: bottom left;
+    transition: transform 0.25s ease-out;
+}
+.hover-underline-animation:hover::after{
+    transform: scaleX(1);
+}
+
+.overflow-scroll-gradient{
+    position: relative;
+}
+.overflow-scroll-gradient::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 300px;
+    height: 100px;
+    background: linear-gradient(rgba(255,255,255,0.001),white);
+    pointer-events: none;
+}
+.overflow-scroll-gradient__scroller {
+  overflow-y: scroll;
+  background: white;
+  width: 150px;
+  height: 250px;
+  padding: 15px 0;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.reference {
+  position: relative;
+  width: 200px;
+  height: 50px;
+  background: #333;
+}
+.popout-menu {
+  position: absolute;
+  visibility: hidden;
+  left: 100%;
+  width: 200px;
+  height: 40px;
+  background: red;
+}
+.reference:hover > .popout-menu {
+  visibility: visible;
+}
+
+.triangle{
+    width: 0;
+    height: 0;
+    border: 20px solid;
+}
+.triangle1{
+    @extend .triangle;
+    border-color: #333 transparent transparent transparent;
+}
+.triangle2{
+    @extend .triangle;
+    border-color: transparent #333 transparent transparent;
+}
+.triangle3{
+    @extend .triangle;
+    border-color:  transparent  transparent #333 transparent;
+}
+.triangle4{
+    @extend .triangle;
+    border-color: transparent transparent transparent #333;
+}
+
+.truncate-text{
+    width: 185px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
